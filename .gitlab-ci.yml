@@ -1,0 +1,23 @@
+
+stages:
+  - test
+  - build
+
+test: 
+  stage: test
+  image: node:18-alpine3.17
+  script:
+    - echo "Testing App"
+    - echo "Test successfully!"
+
+build:
+  stage: build
+  image: node:18-alpine3.17
+  script: 
+    - echo "Start building App"
+    - npm install
+    - npm run build
+    - echo "Build successfully!"
+  artifacts:
+    paths:
+      - node_modules/
